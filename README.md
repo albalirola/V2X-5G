@@ -13,7 +13,7 @@ La plataforma integra el simulador de conducción realista **CARLA** (ejecutado 
 
 ---
 
-## 🏗️ Arquitectura General del Sistema
+## Arquitectura General del Sistema
 
 La comunicación cruza el entorno físico y virtual del host (Windows) y la Máquina Virtual (Ubuntu) a través de una red local adaptada (Host-Only Network), mapeando el flujo de datos según el siguiente esquema de arquitectura:
 
@@ -21,7 +21,7 @@ La comunicación cruza el entorno físico y virtual del host (Windows) y la Máq
 
 ---
 
-## 📸 Panel de Control de Grafana (Monitorización en Tiempo Real)
+## Panel de Control de Grafana (Monitorización en Tiempo Real)
 
 El panel monitoriza la velocidad de los vehículos, los estados de los mandos físicos (acelerador/freno), detección de colisiones, latencia de ida y vuelta (E2E), paquetes recibidos por segundo y pérdidas acumuladas.
 
@@ -29,7 +29,7 @@ El panel monitoriza la velocidad de los vehículos, los estados de los mandos f�
 
 ---
 
-## 📂 Estructura del Directorio y Descripción de Archivos
+## Estructura del Directorio y Descripción de Archivos
 
 El proyecto se encuentra organizado de forma modular en los siguientes directorios especializados:
 
@@ -43,7 +43,7 @@ El proyecto se encuentra organizado de forma modular en los siguientes directori
 └── launch.sh              # Script orquestador principal
 ```
 
-### 💻 Componentes e Infraestructura
+### Componentes e Infraestructura
 
 | Directorio | Archivo | Descripción |
 | :--- | :--- | :--- |
@@ -63,7 +63,7 @@ El proyecto se encuentra organizado de forma modular en los siguientes directori
 
 ---
 
-## 🚀 Guía de Despliegue y Ejecución
+## Guía de Despliegue y Ejecución
 
 Sigue detalladamente el orden que se describe a continuación:
 
@@ -103,7 +103,7 @@ Desde el navegador de tu máquina host (Windows), puedes acceder a las siguiente
 
 ---
 
-## 📊 Demostración de Network Slicing y Congestión de Red (iperf3)
+## Demostración de Network Slicing y Congestión de Red (iperf3)
 
 Para evaluar el beneficio de la segmentación de red (*Network Slicing*), es posible inducir tráfico pesado de fondo en el canal normal de datos eMBB (UE2) para comprobar cómo el canal de seguridad URLLC (UE1) mantiene sus requerimientos críticos de latencia y disponibilidad.
 
