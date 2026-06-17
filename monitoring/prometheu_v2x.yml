@@ -1,8 +1,6 @@
-# Configuración para Prometheus Scraper V2X sobre 5G
-# Guarda este archivo o añade su contenido al /etc/prometheus/prometheus.yml de tu VM Ubuntu
 
 global:
-  scrape_interval: 2s     # Frecuencia de muestreo rápida para tiempo real (2s)
+  scrape_interval: 2s     # Frecuencia de muestreo (2s)
   evaluation_interval: 2s
 
 scrape_configs:
