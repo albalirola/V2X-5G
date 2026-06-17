@@ -1,0 +1,21 @@
+V2X DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+
+VehicleMessage ::= SEQUENCE {
+    vehicleID       INTEGER (0..65535),
+    seqNum          INTEGER (0..65535),
+    timestamp       INTEGER (0..4294967295),
+    speed           INTEGER (0..65535),
+    acceleration    INTEGER (-2000..2000),
+    heading         INTEGER (0..3600),
+    locationX       INTEGER (-2000000..2000000),
+    locationY       INTEGER (-2000000..2000000),
+    angularVelocity INTEGER (-36000..36000),
+    throttle        INTEGER (0..100),
+    brake           INTEGER (0..100),
+    steer           INTEGER (-100..100),
+    gear            INTEGER (0..10),
+    collision       BOOLEAN,
+    obstacle        BOOLEAN
+}
+
+END
