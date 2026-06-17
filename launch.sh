@@ -1,14 +1,4 @@
 #!/bin/bash
-#
-# launch.sh — Lanza el sistema completo
-#
-# Uso:
-#   chmod +x launch.sh
-#   ./launch.sh [--single-ue]
-#
-# Por defecto arranca en modo multi-UE 
-# Con --single-ue arranca solo UE1 
-#
 
 set -euo pipefail
 
