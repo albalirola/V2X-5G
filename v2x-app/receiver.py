@@ -1,11 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-receiver.py — Receptor V2X en el netns del UE
-
-Uso:
-    sudo ip netns exec ue1 bash -c \
-      "UE_IP=10.45.0.X UE_PORT=5006 PROM_PORT=8001 UE_LABEL=ue1 python3 receiver.py"
-"""
 
 import socket
 import asn1tools
