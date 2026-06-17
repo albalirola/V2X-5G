@@ -1,0 +1,4 @@
+# Excluir archivos grandes de pruebas y grabaciones
+prueba*
+prueba*.zip
+*.zip
