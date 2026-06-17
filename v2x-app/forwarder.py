@@ -1,10 +1,3 @@
-"""
-forwarder.py — Orquestador V2X 
-
-Recibe mensajes ASN.1 uPER desde el sender mediante
-ZeroMQ PULL y los reenvía a través de la red 5G
-
-"""
 
 import socket
 import asn1tools
