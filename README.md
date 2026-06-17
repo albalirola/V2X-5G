@@ -1,4 +1,4 @@
-# Simulación E2E V2X sobre Redes Móviles 5G Sliced con CARLA, srsRAN y Open5GS
+# Diseño, Orquestación y Validación de Servicios V2X sobre 5G (con CARLA, srsRAN y Open5GS)
 
 [![CARLA Simulator](https://img.shields.io/badge/Simulator-CARLA-blue?style=for-the-badge&logo=unrealengine&logoColor=white)](https://carla.org/)
 [![srsRAN](https://img.shields.io/badge/5G_RAN-srsRAN_Project-orange?style=for-the-badge)](https://github.com/srsran/srsRAN_Project)
