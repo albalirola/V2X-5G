@@ -1,12 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-sender.py — CARLA V2X sender 
-
-Uso:
-    python sender.py --host 192.168.56.101 --port 5555 --num-v2x 1
-    python sender.py --host 192.168.56.101 --port 5555 --num-v2x 2
-
-"""
 
 import time
 import math
