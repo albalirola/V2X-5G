@@ -38,7 +38,7 @@ c_packets_lost = Counter("v2x_packets_lost_total",     "Paquetes perdidos",   ["
 # Seguimiento de secuencia y tiempos por vehículo
 last_seq: dict = {}
 last_time: dict = {}      # Registra el timestamp del último paquete recibido en este receptor
-MAX_LOSS_THRESHOLD = 100  # saltos mayores = cambio de canal grande, no pérdida real
+MAX_LOSS_THRESHOLD = 100  
 
 
 def detect_loss(vehicle_id: int, seq: int):
@@ -48,8 +48,6 @@ def detect_loss(vehicle_id: int, seq: int):
         # Calcular el tiempo transcurrido desde el último mensaje recibido de este coche
         time_diff = now - last_time.get(vehicle_id, 0)
         
-        # El intervalo normal es 0.1s (10 Hz). 
-        # Si pasa menos de 0.25s, el flujo es continuo: cualquier salto es PÉRDIDA REAL de la red.
         if time_diff < 0.25:
             expected = (last_seq[vehicle_id] + 1) % 65536
             if seq != expected:
@@ -63,8 +61,6 @@ def detect_loss(vehicle_id: int, seq: int):
                         f"(last={last_seq[vehicle_id]} recv={seq})"
                     )
         else:
-            # Si pasa más de 0.25s, es porque el coche estaba transmitiendo en el otro slice.
-            # No contamos pérdidas (falso positivo) y reajustamos la secuencia al nuevo valor.
             print(
                 f"[INFO] vID={vehicle_id} retorno de slice detectado "
                 f"(inactivo durante {time_diff:.2f}s). Reajustando secuencia a {seq} sin contar pérdidas."
@@ -73,8 +69,6 @@ def detect_loss(vehicle_id: int, seq: int):
     last_seq[vehicle_id] = seq
     last_time[vehicle_id] = now
 
-
-# Variable global para guardar el desfase base entre Windows y la VM
 min_offset = None
 
 def compute_latency(sent_ts_ms: int) -> float:
