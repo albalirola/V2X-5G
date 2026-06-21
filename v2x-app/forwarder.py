@@ -26,12 +26,12 @@ ASN_PATH = pathlib.Path(__file__).parent / "v2x.asn"
 schema = asn1tools.compile_files(str(ASN_PATH), "uper")
 
 
-# Detección automática de IP de UE desde su netns 
+# Detección automática de IP de UEs
 def detect_ue_ip(netns: str, iface: str, retries: int = 10, delay: float = 2.0) -> str | None:
     """
     Ejecuta 'ip netns exec <netns> ip addr show <iface>' y extrae la IP.
     Reintenta hasta 'retries' veces esperando 'delay' segundos entre intentos.
-    Retorna la IP como string o None si no se detecta.
+    Devuelve la IP como string o None si no se detecta.
     """
     cmd = ["sudo", "ip", "netns", "exec", netns, "ip", "addr", "show", iface]
     for attempt in range(1, retries + 1):
@@ -94,8 +94,8 @@ VEHICLE_UE_MAP: dict[int, str] = {}
 def resolve_ue(decoded: dict, ues: dict) -> tuple[str, int] | None:
     """
     Devuelve (ip, port) del UE destino aplicando la lógica de Slicing de Red 5G:
-      - URLLC (UE1) para tráfico crítico (colisiones, frenazos bruscos, obstáculos).
-      - eMBB (UE2) para telemetría ordinaria de conducción.
+      - UE1 para tráfico crítico 
+      - UE2 para telemetría ordinaria 
     """
     vehicle_id = decoded["vehicleID"]
     if vehicle_id in VEHICLE_UE_MAP:
@@ -105,11 +105,7 @@ def resolve_ue(decoded: dict, ues: dict) -> tuple[str, int] | None:
     if args.mode == "single":
         return ues.get("ue1")
 
-    # Lógica de Slicing:
-    # - collision: colisión activa
-    # - obstacle: obstáculo detectado por el radar
-    # - brake > 50: frenazo de emergencia (>50% de pedal)
-    # - acceleration < -300: deceleración fuerte (< -3.0 m/s²)
+    # Lógica de clasificacion:
     is_critical = (
         decoded["collision"] or 
         decoded["obstacle"] or 
